@@ -1,0 +1,34 @@
+{
+  "name": "Curso Angular",
+  "description": "Curso intensivo de Angular JS",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "curso",
+    "angular",
+    "angularjs"
+  ],
+  "authors": [
+    "Oscar Cisneros Sánchez <oscar.cisneros@metricamovil.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "foundation": "~5.5.3",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
+    "api-check": "~7.5.5",
+    "angular-formly": "~7.3.9"
+  }
+}

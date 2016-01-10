@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Angular 101</title>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="myApp" >
+
+	<div id="content" ng-controller="ctrlGreetings">
+		{{ 2 + 2 }} <br />
+		Hola {{ name | uppercase }}
+
+		{{ 'AnitA LAVA LA TINA' | lowercase }}
+
+		<div ng-bind="setLowerCase"></div>
+		<div>{{ 123456.78909 | number:2 }}</div>
+		<div>{{ 123456.78909 | currency }}</div>
+		
+		<hr/>
+
+		<div>{{ today | date:'EEEE' }}</div>
+		<div>{{ today | date:'fullDate' }}</div>
+		<div>{{ today | date:'mediumDate' }}</div>
+		<div>{{ today | date:'shortTime' }}</div>
+		<div>{{ today | date:'in the morning' }}</div>
+		
+		<br/>
+		<input type="text" ng-model="search">
+		<div>{{ ['lol','galaga','mario','doom','halo'] | filter:search }}<div/>
+		
+		<br/>
+		<div>{{ ['lol','galaga','mario','doom','halo'] | filter:'d' }}<div/>
+
+		<br/>
+		<input type="text" ng-model="searching">
+		<div>{{ [
+					{
+					'name': 'Hugo',
+					'city': 'Paris',
+					'lenguaje': 'C'
+					},
+					{
+					'name': 'Abdel',
+					'city': 'Tokio',
+					'lenguaje': 'VB'
+					},
+					{
+					'name': 'Oscar',
+					'city': 'Zacatecas',
+					'lenguaje': 'C++'
+					},
+					{
+					'name': 'Daniel',
+					'city': 'Cancún',
+					'lenguaje': 'JS'
+					},
+					{
+					'name': 'Sergio',
+					'city': 'San Francisco',
+					'lenguaje': 'PASCAL'
+					}
+				] | orderBy: '-name'
+			}}<div/>
+
+			<!--] | json-->
+			<!--] | filter: {'city': search, 'lenguaje': searching}-->
+
+		<hr/>
+
+		<label type="text"> {{ 'Tamaño Cadena' | filter: tamanioCadena }}</label>
+
+		<hr/>
+
+		<div>{{ ['lol','Galaga','mario','Doom','halo'] | filter: isCapitalized }}<div/>
+
+		<hr/>
+
+		<div>{{ ['lol','Galaga','mario','Doom','halo'] | limitTo: 3 }}<div/> <!--limitar el resultado-->
+
+		<hr/>
+
+		<div>{{ ['lol','Galaga','mario','Doom','halo'] | limitTo: Math.Random(5) }}<div/>
+
+		<hr/>
+
+		<h2>{{ -15 | blankIfNegative }}</h2> <!--filtro creado-->
+		<h2>{{ 'sergio ivan' | capitalize }}</h2> <!--filtro creado-->
+
+		<hr/>
+
+		<h3 ng-init="age='33'">{{ age }}</h3> <!--asignación directa-->
+
+		<div my-login></div>
+		<div my-login user-name="CiSO"></div>
+
+		</hr>
+
+		<my-login></my-login>
+		<my-login></my-login>
+
+		<!-- directive: my-login -->
+
+		<hr/>
+
+		
+
+		<hr/>
+
+		<button ng-click="greeting()">Saludar</button><br/><br/>
+	</div>
+
+	Hola Mundo!
+
+	<div ng-controller="myClock">
+		<h4>{{ clock.now | date:'fullDate' }} -- {{ clock.now | date:'mediumTime' }}</h4>
+	</div>
+
+	<hr/>
+
+	<div ng-controller="myOperators">
+		<input type="Text" id="Number1" ng-model="datoA" ng-change="showData()">
+		<input type="Text" id="Number2" ng-model="datoB">
+		<br/>
+		<button ng-click="add()" ng-disabled="true">+</button>
+		<button ng-click="substract()">-</button>
+		<button ng-click="multiply()">*</button>
+		<button ng-click="divide()">/</button>
+		<br/>
+		<label id="Result">Resultado: {{ result }}</label>
+	</div>
+
+	</br>
+
+	<label>Estado de la selección: {{ selection }}</label>
+	<input type="checkbox"
+			ng-model="selection"
+			ng-init="selection = false"
+			ng-checked="selection"
+	>
+
+</body>
+</html>

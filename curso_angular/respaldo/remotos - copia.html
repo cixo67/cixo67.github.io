@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Angular 101</title>    
+   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>    
+   <script type="text/javascript" src="bower_components/foundation/js/foundation.js"></script>
+   <link type="text/css" href="bower_components/foundation/css/foundation.css" rel="stylesheet">
+   <script type="text/javascript" src="remotos.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myControllers">
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Capital</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="city in cities" ng-model="city" ng-click="getCity(city)">
+                <td>{{city.name}}</td>
+                <td>{{city.capital}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style='' position:fixed; top:0; right:0>
+    	<label>SubRegion: {{ city.subregion }}</label>
+    	<label>Population: {{ city.population }}</label>
+    	<label>Calling Codes: {{ city.callingcodes }}</label>
+    	<label>Currencies: {{ city.currencies }}</label>
+    	<label>TimeZone: {{ city.timezone }}</label>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="jumbotron text center">
+	<H1>LISTADO DE PAISES</H1>
+	
+	<br/><br/>
+	<say-hi></say-hi>
+</div>
+
+<div class="text-center">
+	<i class="fa fa-cog fa-spin fa-3x text-center" ng-show="!loadData"></i>
+</div>
+
+<table class="table table-striped" ng-show="loadData">
+ <thead>
+   <tr ng-repeat="city in cities" ng-model="city" ng-click="showDetail(city)">
+     <th>
+		{{ city.name }} 
+     </th>
+     <th>
+		{{ city.capital }}
+     </th>
+   </tr>
+ </thead>
+</table>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dia 2 - Angular 101</title>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="Controllers.js"></script>
+
+	<style type="text/css">
+		.red{
+			background-color: red;
+			color: yellow;
+		}
+		body{
+			background-color: green;
+			color: white;
+		}
+		.blue{
+			background-color: blue;
+		}
+	</style>
+</head>
+<!--<body ng-app="MyApp" ng-controller="myControllers" ng-class="(aleatorio > 5)?{blue: x>5}:{red: x<=5})">-->
+<body ng-app="MyApp" ng-controller="myControllers" ng-class="{blue: aleatorio>5}">
+
+	<div id="content">
+		<button id="btnRandom" ng-click="random()">Generar Random</button>
+		<label type="text">{{ aleatorio }}</label>
+		<div ng-if="aleatorio > 5" ng-class="{red: aleatorio > 5}">
+			Haz Ganado !!!
+		</div>
+
+		<div>
+			El link es: {{ myLink }}
+			<a href="{{ myLink }}">El Link</a>
+			<a ng-href="{{ myLink }}">El Link</a>
+		</div>
+
+		<div>
+			<input type="checkbox" ng-model="open">
+			</br>
+				{{ open }}
+			</br>
+
+			<details ng-open="open">
+				<summary ng-show="open">Este es el detalle</summary>
+			</details>
+
+			<input type="text" ng-model="myData">
+			<input type="text" ng-readonly="open" values="Este es el dato">
+		</div>
+	</div>
+
+	<div>
+		<select ng-options="city.name for city in cities.availableOptions track by city.name" ng-model="cities.selectedOption">
+			<option value="">Elige una ciudad</option>
+			<option ng-selected="open">otra opción</option>
+		</select>
+		La ciudad Seleccionada es: {{ cities.selectedOption.name }}
+	</div>
+
+	<div>
+		<!--<img src="{{ myImage }}">
+		<img ng-src="{{ myImage }}">-->
+	</div>
+
+	<form ng-submit="submit()">
+		<input type="text" ng-model="person.name" name="person.name">
+		<input type="submit" name="person.name" value="Enviar">
+		<code>people = {{ people  }}</code>
+
+		<ul>
+			<li ng-repeat="person in people">{{ person.name }}</li>
+		</ul>
+
+		<hr>
+
+		<ul>
+			<li ng-repeat="city in cities.availableOptions">{{ city.name }}</li>
+		</ul>
+	</form>
+</body>
+</html>
